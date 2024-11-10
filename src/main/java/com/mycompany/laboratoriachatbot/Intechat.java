@@ -55,7 +55,7 @@ public class Intechat extends javax.swing.JFrame {
     public void eliminarchat(){
         Titulo[I]= null;
         Historial.setListData(Titulo);
-        for (int j = 0; j < 999; j++) {
+        for (int j = 0; j < 999; j=j+1) {
             conver2[i][j] = null;
 //            Funcion para eliminar un chat del historial
         }
@@ -132,7 +132,7 @@ public class Intechat extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         Chatt = new javax.swing.JList<>();
         jLabel2 = new javax.swing.JLabel();
-        Btnsalir = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -196,15 +196,15 @@ public class Intechat extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
         jLabel2.setText("GIRLBOT");
 
-        Btnsalir.setBackground(new java.awt.Color(255, 153, 153));
-        Btnsalir.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
-        Btnsalir.setText("Guardar");
-        Btnsalir.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButton3.setBackground(new java.awt.Color(255, 153, 153));
+        jButton3.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
+        jButton3.setText("Eliminar Chat");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                BtnsalirMouseClicked(evt);
+                jButton3MouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                BtnsalirMouseEntered(evt);
+                jButton3MouseEntered(evt);
             }
         });
 
@@ -230,20 +230,17 @@ public class Intechat extends javax.swing.JFrame {
                                 .addComponent(ENVIAR))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 410, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGap(62, 62, 62)
+                                .addGap(26, 26, 26)
                                 .addComponent(jButton2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(NuevoChat)
-                                .addGap(64, 64, 64)))
+                                .addComponent(jButton3)
+                                .addGap(56, 56, 56)
+                                .addComponent(NuevoChat)))
                         .addGap(59, 59, 59))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(132, 132, 132)
                         .addComponent(jLabel2)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Btnsalir)
-                .addGap(274, 274, 274))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -260,16 +257,15 @@ public class Intechat extends javax.swing.JFrame {
                         .addGap(25, 25, 25)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton2)
-                            .addComponent(NuevoChat))
+                            .addComponent(NuevoChat)
+                            .addComponent(jButton3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(ENVIAR)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Btnsalir)
-                .addGap(14, 14, 14))
+                .addGap(44, 44, 44))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -370,24 +366,26 @@ public class Intechat extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2MouseEntered
 
-    private void BtnsalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnsalirMouseClicked
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         // TODO add your handling code here:
-        dispose();
-    }//GEN-LAST:event_BtnsalirMouseClicked
+        eliminar();
+        eliminarchat();
+//        Aqui llamo a eliminar para eliminar el contenido del chat y el historial con el indice
+    }//GEN-LAST:event_jButton3MouseClicked
 
-    private void BtnsalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnsalirMouseEntered
+    private void jButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseEntered
         // TODO add your handling code here:
-    }//GEN-LAST:event_BtnsalirMouseEntered
+    }//GEN-LAST:event_jButton3MouseEntered
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Btnsalir;
     private javax.swing.JList<String> Chatt;
     private javax.swing.JButton ENVIAR;
     private javax.swing.JList<String> Historial;
     private javax.swing.JButton NuevoChat;
     private javax.swing.JTextPane TextoPre;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
