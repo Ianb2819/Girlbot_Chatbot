@@ -132,10 +132,14 @@ public class Intechat extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         Chatt = new javax.swing.JList<>();
         jLabel2 = new javax.swing.JLabel();
- Correccion
+
+        ENVIAR1 = new javax.swing.JButton();
+
+
         Btneliminar = new javax.swing.JButton();
 
       
+
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -199,7 +203,15 @@ public class Intechat extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
         jLabel2.setText("GIRLBOT");
 
- Correccion
+
+        ENVIAR1.setBackground(new java.awt.Color(255, 153, 153));
+        ENVIAR1.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
+        ENVIAR1.setText("Salir");
+        ENVIAR1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ENVIAR1MouseClicked(evt);
+
+
         Btneliminar.setBackground(new java.awt.Color(255, 153, 153));
         Btneliminar.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
         Btneliminar.setText("Eliminar");
@@ -213,7 +225,8 @@ public class Intechat extends javax.swing.JFrame {
                 BtneliminarActionPerformed(evt);
 
        
- main
+
+
             }
         });
 
@@ -254,6 +267,10 @@ public class Intechat extends javax.swing.JFrame {
                         .addGap(132, 132, 132)
                         .addComponent(jLabel2)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ENVIAR1)
+                .addGap(265, 265, 265))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -281,7 +298,9 @@ public class Intechat extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(ENVIAR)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(44, 44, 44))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ENVIAR1)
+                .addGap(14, 14, 14))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -406,11 +425,17 @@ public class Intechat extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3MouseEntered
 
+    private void ENVIAR1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ENVIAR1MouseClicked
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_ENVIAR1MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btneliminar;
     private javax.swing.JList<String> Chatt;
     private javax.swing.JButton ENVIAR;
+    private javax.swing.JButton ENVIAR1;
     private javax.swing.JList<String> Historial;
     private javax.swing.JButton NuevoChat;
     private javax.swing.JTextPane TextoPre;
