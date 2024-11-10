@@ -31,7 +31,7 @@ public class Intechat extends javax.swing.JFrame {
     String x;
     int n = 999, ñ = 0,k=0,  G=0, y=0, i=0, I;
     public void guardar(String[] conver){
-        Titulo[i]= conver[0];
+        Titulo[i]= conver[0].substring(4);
         Historial.setListData(Titulo);
         for (int j = 0; j < 999; j++) {
             conver2[i][j] = conver[j];
@@ -55,11 +55,11 @@ public class Intechat extends javax.swing.JFrame {
     public void eliminarchat(){
         Titulo[I]= null;
         Historial.setListData(Titulo);
-        for (int j = 0; j < 999; j++) {
+        for (int j = 0; j < 999; j=j+1) {
             conver2[i][j] = null;
 //            Funcion para eliminar un chat del historial
         }
-    }
+}
 
     public static String Chat(String a) throws MalformedURLException, IOException { //MÉTODO PARA MANDAR LA PREGUNTA A LA API
         String modelName = "llama3.2:1b";
@@ -132,7 +132,14 @@ public class Intechat extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         Chatt = new javax.swing.JList<>();
         jLabel2 = new javax.swing.JLabel();
+
         ENVIAR1 = new javax.swing.JButton();
+
+
+        Btneliminar = new javax.swing.JButton();
+
+      
+
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -187,7 +194,7 @@ public class Intechat extends javax.swing.JFrame {
 
         jLabel1.setBackground(new java.awt.Color(255, 204, 204));
         jLabel1.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
-        jLabel1.setText("Histroial");
+        jLabel1.setText("Historial");
 
         Chatt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jScrollPane1.setViewportView(Chatt);
@@ -196,12 +203,30 @@ public class Intechat extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
         jLabel2.setText("GIRLBOT");
 
+
         ENVIAR1.setBackground(new java.awt.Color(255, 153, 153));
         ENVIAR1.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
         ENVIAR1.setText("Salir");
         ENVIAR1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ENVIAR1MouseClicked(evt);
+
+
+        Btneliminar.setBackground(new java.awt.Color(255, 153, 153));
+        Btneliminar.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
+        Btneliminar.setText("Eliminar");
+        Btneliminar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtneliminarMouseClicked(evt);
+            }
+        });
+        Btneliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtneliminarActionPerformed(evt);
+
+       
+
+
             }
         });
 
@@ -225,13 +250,18 @@ public class Intechat extends javax.swing.JFrame {
                                 .addComponent(jScrollPane3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(ENVIAR))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 410, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGap(62, 62, 62)
+                                .addGap(26, 26, 26)
                                 .addComponent(jButton2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+ Correccion
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                                .addComponent(Btneliminar)
+                                .addGap(18, 18, 18)
                                 .addComponent(NuevoChat)
                                 .addGap(64, 64, 64)))
+
+                                main
                         .addGap(59, 59, 59))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(132, 132, 132)
@@ -257,7 +287,11 @@ public class Intechat extends javax.swing.JFrame {
                         .addGap(25, 25, 25)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton2)
-                            .addComponent(NuevoChat))
+                            .addComponent(NuevoChat)
+
+                            .addComponent(Btneliminar))
+
+
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -366,6 +400,30 @@ public class Intechat extends javax.swing.JFrame {
     private void jButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseEntered
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2MouseEntered
+    
+    
+    private void BtneliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtneliminarMouseClicked
+        // TODO add your handling code here
+  // TODO add your handling code here:
+        eliminar();
+        eliminarchat();
+//        Aqui llamo a eliminar para eliminar el contenido del chat y el historial con el indice:
+    }//GEN-LAST:event_BtneliminarMouseClicked
+
+    private void BtneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtneliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtneliminarActionPerformed
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        // TODO add your handling code here:
+        eliminar();
+        eliminarchat();
+//        Aqui llamo a eliminar para eliminar el contenido del chat y el historial con el indice
+    }//GEN-LAST:event_jButton3MouseClicked
+
+    private void jButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3MouseEntered
 
     private void ENVIAR1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ENVIAR1MouseClicked
         // TODO add your handling code here:
@@ -374,6 +432,7 @@ public class Intechat extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Btneliminar;
     private javax.swing.JList<String> Chatt;
     private javax.swing.JButton ENVIAR;
     private javax.swing.JButton ENVIAR1;
@@ -381,6 +440,7 @@ public class Intechat extends javax.swing.JFrame {
     private javax.swing.JButton NuevoChat;
     private javax.swing.JTextPane TextoPre;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

@@ -17,7 +17,7 @@ import org.json.JSONObject;
 public class LaboratoriaChatBot {
 
     public static String Chat(String a) throws MalformedURLException, IOException {
-        String modelName = "llama3.2:1b";
+       String modelName = "llama3.2:1b";
         String promptText = a;
         String responseText = " ";
         try {
@@ -36,29 +36,32 @@ public class LaboratoriaChatBot {
             }
 
             int code = conn.getResponseCode();
-            System.out.println("code is " + code);
+            if (code == 200) {
+                BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream(), StandardCharsets.UTF_8));
+                StringBuilder response = new StringBuilder();
+                String line;
 
-            BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream(), StandardCharsets.UTF_8));
-            StringBuilder response = new StringBuilder();
-            String line;
+                while ((line = in.readLine()) != null) {
+                    response.append(line);
+                }
+                in.close();
+                JSONObject jsonresponse = new JSONObject(response.toString());
+                responseText = jsonresponse.getString("response");
 
-            while ((line = in.readLine()) != null) {
-                response.append(line);
+            } else {
+                System.out.println("Cuerpo de la respuesta: " + responseText);
+                throw new IOException("Error en la respuesta del servidor");
             }
-            in.close();
-            System.out.println("Respuesta de Ollama: " + response.toString());
-            JSONObject jsonresponse = new JSONObject(response.toString());
-            responseText = jsonresponse.getString("response");
-
-            System.out.println("Respuesta: " + responseText);
-        } catch (MalformedURLException e) {
-            System.err.println("URL mal formada: " + e.getMessage());
+        } 
+        catch (MalformedURLException e) {
+            responseText = "URL mal formada: " + e.getMessage();
         } catch (IOException e) {
-            System.err.println("Error de conexión o lectura de la respuesta: " + e.getMessage());
+            responseText = "Error de conexión o lectura de la respuesta: " + e.getMessage();
         } catch (Exception e) {
-            System.err.println("Error inesperado: " + e.getMessage());
+            responseText = "Error inesperado: " + e.getMessage();
         }
-        return responseText;
+
+        return responseText; 
 
     }
 
