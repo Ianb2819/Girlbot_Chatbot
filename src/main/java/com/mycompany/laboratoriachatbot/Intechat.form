@@ -58,13 +58,19 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="ENVIAR" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jScrollPane1" pref="410" max="32767" attributes="0"/>
+                              <Component id="jScrollPane1" max="32767" attributes="0"/>
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                                   <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+
+                                  <EmptySpace pref="17" max="32767" attributes="0"/>
+                                  <Component id="Btneliminar" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="jButton3" min="-2" max="-2" attributes="0"/>
+                                  
                                   <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+
                                   <Component id="NuevoChat" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -96,7 +102,11 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="NuevoChat" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
+
+                              <Component id="Btneliminar" alignment="3" min="-2" max="-2" attributes="0"/>
+
+                             
+
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jScrollPane1" min="-2" pref="206" max="-2" attributes="0"/>
@@ -213,7 +223,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI Black" size="18" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Histroial"/>
+            <Property name="text" type="java.lang.String" value="Historial"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -250,8 +260,12 @@
             </Property>
             <Property name="text" type="java.lang.String" value="GIRLBOT"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="jButton3">
+       </Component>
+
+        <Component class="javax.swing.JButton" name="Btneliminar">
+
+      
+
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="99" red="ff" type="rgb"/>
@@ -259,11 +273,15 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI Black" size="12" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Eliminar Chat"/>
+
+            <Property name="text" type="java.lang.String" value="Eliminar"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton3MouseClicked"/>
-            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton3MouseEntered"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="BtneliminarMouseClicked"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtneliminarActionPerformed"/>
+
+            
+
           </Events>
         </Component>
       </SubComponents>
