@@ -31,7 +31,7 @@ public class Intechat extends javax.swing.JFrame {
     String x;
     int n = 999, ñ = 0,k=0,  G=0, y=0, i=0, I;
     public void guardar(String[] conver){
-        Titulo[i]= conver[0];
+        Titulo[i]= conver[0].substring(4);
         Historial.setListData(Titulo);
         for (int j = 0; j < 999; j++) {
             conver2[i][j] = conver[j];
@@ -59,7 +59,7 @@ public class Intechat extends javax.swing.JFrame {
             conver2[i][j] = null;
 //            Funcion para eliminar un chat del historial
         }
-    }
+}
 
     public static String Chat(String a) throws MalformedURLException, IOException { //MÉTODO PARA MANDAR LA PREGUNTA A LA API
         String modelName = "llama3.2:1b";
