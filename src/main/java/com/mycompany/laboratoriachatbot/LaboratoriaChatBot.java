@@ -36,7 +36,8 @@ public class LaboratoriaChatBot {
             }
 
             int code = conn.getResponseCode();
-            if (code == 200) {
+            if (code == 200) { // SE VERIFICA QUE NO HALLA ERROR DE CONEXIÓN CON LA API
+                // SI NO LA HAY RESPONDE
                 BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream(), StandardCharsets.UTF_8));
                 StringBuilder response = new StringBuilder();
                 String line;
@@ -49,22 +50,20 @@ public class LaboratoriaChatBot {
                 responseText = jsonresponse.getString("response");
 
             } else {
-                System.out.println("Cuerpo de la respuesta: " + responseText);
+                //DE LO CONTRARIO LANZARÁ COMO RESPUESTA EL ERROR
                 throw new IOException("Error en la respuesta del servidor");
             }
-        } 
+        }//LO MISMO ACÁ
         catch (MalformedURLException e) {
-            responseText = "URL mal formada: " + e.getMessage();
+            responseText = " URL mar formada" + e.getMessage()+ "Vuelve a intentarlo";
         } catch (IOException e) {
-            responseText = "Error de conexión o lectura de la respuesta: " + e.getMessage();
+            responseText = "" + e.getMessage()+"Vuelve a intentarlo";
         } catch (Exception e) {
-            responseText = "Error inesperado: " + e.getMessage();
+            responseText = " " + e.getMessage()+"Vuelve a intentarlo";
         }
 
-        return responseText; 
-
+        return responseText;
     }
-
     public static void main(String[] args) throws MalformedURLException, IOException {
         Intechat frame = new Intechat(); // ESTA ES MI INTERFAZ
         frame.setVisible(true);

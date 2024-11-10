@@ -32,7 +32,7 @@ public class Intechat extends javax.swing.JFrame {
     int n = 999, ñ = 0,k=0,  G=0, y=0, i=0, I;
     public void guardar(String[] conver){
         Titulo[i]= conver[0].substring(4);
-        Historial.setListData(Titulo);
+        Histo.setListData(Titulo);
         for (int j = 0; j < 999; j++) {
             conver2[i][j] = conver[j];
 //            Funcion para guardar el chat en una matriz
@@ -54,7 +54,7 @@ public class Intechat extends javax.swing.JFrame {
     }
     public void eliminarchat(){
         Titulo[I]= null;
-        Historial.setListData(Titulo);
+        Histo.setListData(Titulo);
         for (int j = 0; j < 999; j=j+1) {
             conver2[i][j] = null;
 //            Funcion para eliminar un chat del historial
@@ -122,7 +122,7 @@ public class Intechat extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        Historial = new javax.swing.JList<>();
+        Histo = new javax.swing.JList<>();
         ENVIAR = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         TextoPre = new javax.swing.JTextPane();
@@ -132,24 +132,18 @@ public class Intechat extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         Chatt = new javax.swing.JList<>();
         jLabel2 = new javax.swing.JLabel();
-
-        ENVIAR1 = new javax.swing.JButton();
-
-
         Btneliminar = new javax.swing.JButton();
-
-      
-
+        ENVIAR1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        Historial.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        Historial.addMouseListener(new java.awt.event.MouseAdapter() {
+        Histo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Histo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                HistorialMouseClicked(evt);
+                HistoMouseClicked(evt);
             }
         });
-        jScrollPane2.setViewportView(Historial);
+        jScrollPane2.setViewportView(Histo);
 
         ENVIAR.setBackground(new java.awt.Color(255, 153, 153));
         ENVIAR.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
@@ -203,15 +197,6 @@ public class Intechat extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
         jLabel2.setText("GIRLBOT");
 
-
-        ENVIAR1.setBackground(new java.awt.Color(255, 153, 153));
-        ENVIAR1.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
-        ENVIAR1.setText("Salir");
-        ENVIAR1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ENVIAR1MouseClicked(evt);
-
-
         Btneliminar.setBackground(new java.awt.Color(255, 153, 153));
         Btneliminar.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
         Btneliminar.setText("Eliminar");
@@ -223,10 +208,15 @@ public class Intechat extends javax.swing.JFrame {
         Btneliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtneliminarActionPerformed(evt);
+            }
+        });
 
-       
-
-
+        ENVIAR1.setBackground(new java.awt.Color(255, 153, 153));
+        ENVIAR1.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
+        ENVIAR1.setText("Salir");
+        ENVIAR1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ENVIAR1MouseClicked(evt);
             }
         });
 
@@ -254,14 +244,10 @@ public class Intechat extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGap(26, 26, 26)
                                 .addComponent(jButton2)
- Correccion
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                                 .addComponent(Btneliminar)
-                                .addGap(18, 18, 18)
-                                .addComponent(NuevoChat)
-                                .addGap(64, 64, 64)))
-
-                                main
+                                .addGap(18, 74, Short.MAX_VALUE)
+                                .addComponent(NuevoChat)))
                         .addGap(59, 59, 59))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(132, 132, 132)
@@ -288,10 +274,7 @@ public class Intechat extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton2)
                             .addComponent(NuevoChat)
-
                             .addComponent(Btneliminar))
-
-
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -318,13 +301,8 @@ public class Intechat extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ENVIARMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ENVIARMouseClicked
-        if (TextoPre.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Por favor, ingrese una pregunta antes de enviar.", "Advertencia", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-
-        // PARA MOSTRARLO GUARDAMOS LA PREGUNTA EN EL ARRAY CONVER
-        boolean nueva = false;
+         // PARA MOSTRARLO GUARDAMOS LA PREGUNTA EN EL ARRAY CONVER
+        boolean SIHAY = false;
         ñ++;
         int p = 0;
         for (int i = 0; i < n; i++) {
@@ -333,14 +311,14 @@ public class Intechat extends javax.swing.JFrame {
                     x = TextoPre.getText();
                 }
                 conver[i] = "Tu: " + TextoPre.getText();  // GUARDAR LA PREGUNTA EN EL VECTOR
-                nueva = true;
+                SIHAY = true;//AQUÍ VERIFICAMMOS QUE SI HAY UNA PREGUNTA
                 p = i;
                 TextoPre.setText("");  // CUANDO LE DE AL BOTÓN ENVIAR QUE SE ELIMINE LA INFORMACIÓN EN EL CUADRO DE TEXTO
                 break;
             }
         }
 
-        if (nueva) {
+        if (SIHAY) { //SI EXISTE LA PREGUNTA SE HARÁ ESTO
             //ACTUALIZAMOS LOS CHATS
             Chatt.setListData(conver);
 
@@ -359,9 +337,13 @@ public class Intechat extends javax.swing.JFrame {
                 Chatt.setListData(conver);
 
             } catch (IOException ex) {
-                Logger.getLogger(Intechat.class.getName()).log(Level.SEVERE, null, ex);
-                JOptionPane.showMessageDialog(this, "Ocurrió un error al conectar con Ollama.", "Error", JOptionPane.ERROR_MESSAGE);
-            
+                for (int i = p + 1; i < n; i++) {
+                    if (conver[i] == null) {
+                        Logger.getLogger(Intechat.class.getName()).log(Level.SEVERE, null, ex);
+                        conver[i] = "Ocurrió un error al conectar ollama, por favor vuelva  a intentarlo";
+                        break;
+                    }
+                }
             }
         }
     }//GEN-LAST:event_ENVIARMouseClicked
@@ -376,13 +358,13 @@ public class Intechat extends javax.swing.JFrame {
 //        Aqui llame a guardar e hice i++ para que guardar pase de 0 a 1 y asi
     }//GEN-LAST:event_jButton2MouseClicked
 
-    private void HistorialMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HistorialMouseClicked
+    private void HistoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HistoMouseClicked
         // TODO add your handling code here:
-        I = Historial.getSelectedIndex();
+        I = Histo.getSelectedIndex();
         i = I;
         chat();
 //        Aqui agarro el inice que es una variable global y mando a que se haga la funcion chat
-    }//GEN-LAST:event_HistorialMouseClicked
+    }//GEN-LAST:event_HistoMouseClicked
 
     private void NuevoChatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NuevoChatMouseClicked
         // TODO add your handling code here:
@@ -436,11 +418,10 @@ public class Intechat extends javax.swing.JFrame {
     private javax.swing.JList<String> Chatt;
     private javax.swing.JButton ENVIAR;
     private javax.swing.JButton ENVIAR1;
-    private javax.swing.JList<String> Historial;
+    private javax.swing.JList<String> Histo;
     private javax.swing.JButton NuevoChat;
     private javax.swing.JTextPane TextoPre;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
