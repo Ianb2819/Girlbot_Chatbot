@@ -55,19 +55,19 @@ public class LaboratoriaChatBot {
             }
         }//LO MISMO ACÁ
         catch (MalformedURLException e) {
-            responseText = " URL mar formada" + e.getMessage()+ "Vuelva a intentarlo";
+            responseText = " URL mar formada" + e.getMessage()+ "Por favor, vuelva a intentarlo";
         } catch (IOException e) {
-            responseText = "" + e.getMessage()+"Vuelve a intentarlo";
+            responseText = "" + e.getMessage()+"Por favor, vuelva a intentarlo";
         } catch (Exception e) {
-            responseText = " " + e.getMessage()+"Vuelve a intentarlo";
+            responseText = " " + e.getMessage()+"Por favor, vuelva a intentarlo";
         }
 
         return responseText;
     }
     public static void main(String[] args) throws MalformedURLException, IOException {
-        Intechat frame = new Intechat(); // ESTA ES MI INTERFAZ
+        Intechat frame = new Intechat(); // ESTA ES LA INTERFAZ
         frame.setVisible(true);
-        frame.setSize(660, 420);
+        frame.setSize(660, 419);
         frame.setLocationRelativeTo(null);// ES PARA QUE APAREZCA SIEMPRE EN EL MEDIO
     }
 
