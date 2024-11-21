@@ -55,7 +55,7 @@ public class LaboratoriaChatBot {
             }
         }//LO MISMO ACÁ
         catch (MalformedURLException e) {
-            responseText = " URL mar formada" + e.getMessage()+ "Vuelve a intentarlo";
+            responseText = " URL mar formada" + e.getMessage()+ "Vuelva a intentarlo";
         } catch (IOException e) {
             responseText = "" + e.getMessage()+"Vuelve a intentarlo";
         } catch (Exception e) {
@@ -67,7 +67,7 @@ public class LaboratoriaChatBot {
     public static void main(String[] args) throws MalformedURLException, IOException {
         Intechat frame = new Intechat(); // ESTA ES MI INTERFAZ
         frame.setVisible(true);
-        frame.setSize(660, 419);
+        frame.setSize(660, 420);
         frame.setLocationRelativeTo(null);// ES PARA QUE APAREZCA SIEMPRE EN EL MEDIO
     }
 
