@@ -50,7 +50,7 @@ public class LaboratoriaChatBot {
                 responseText = jsonresponse.getString("response");
 
             } else {
-                //DE LO CONTRARIO LANZARÁ COMO RESPUESTA EL ERROR
+                //DE LO CONTRARIO, LANZARÁ COMO RESPUESTA EL ERROR
                 throw new IOException("Error en la respuesta del servidor");
             }
         }//LO MISMO ACÁ
@@ -67,7 +67,7 @@ public class LaboratoriaChatBot {
     public static void main(String[] args) throws MalformedURLException, IOException {
         Intechat frame = new Intechat(); // ESTA ES LA INTERFAZ
         frame.setVisible(true);
-        frame.setSize(660, 419);
+        frame.setSize(660, 419); //MEDIDAS DE LA INTERFAZ
         frame.setLocationRelativeTo(null);// ES PARA QUE APAREZCA SIEMPRE EN EL MEDIO
     }
 
