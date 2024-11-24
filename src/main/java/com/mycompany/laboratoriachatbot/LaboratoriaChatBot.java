@@ -36,7 +36,7 @@ public class LaboratoriaChatBot {
             }
 
             int code = conn.getResponseCode();
-            if (code == 200) { // SE VERIFICA QUE NO HALLA ERROR DE CONEXIÓN CON LA API
+            if (code == 200) { // AQUÍ SE VERIFICA QUE NO HALLA ERROR DE CONEXIÓN CON LA API
                 // SI NO LA HAY RESPONDE
                 BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream(), StandardCharsets.UTF_8));
                 StringBuilder response = new StringBuilder();
